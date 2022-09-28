@@ -1,0 +1,201 @@
+@font-face {
+    font-family: 'HallymGothic-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2204@1.0/HallymGothic-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@mixin reset-input {
+    background: none;
+    border: none;
+    outline: none;
+}
+
+*{
+    box-sizing: border-box;
+    font-family: 'HallymGothic-Regular';
+}
+
+body{
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #ebe3ff;
+}
+
+#wrap{
+    width: 340px;
+    padding-bottom: 50px;
+    
+    >header{
+        position: relative;
+        height: 100px;
+        margin-bottom: 15px;
+        padding: 8px;
+        color: #fff;
+        background-color: #AF7EEB;
+        border-radius: 10px;
+        box-shadow: 0 0 4px #00000027;
+        
+        >.bar{
+            position: absolute;
+            top:8px;
+            right: 8px;
+            width: 180px;
+            height: 24px;
+            line-height: 26px;
+            text-align: center;
+            background-color: #a169e6;
+            border-radius: 10px;
+            cursor: default;
+
+            >.date{
+                margin-right: 8px;
+            }
+        }//.bar
+
+        >h1{
+            position: absolute;
+            left: 20px;
+            bottom: 20px;
+            text-align: right;
+            cursor: default;
+
+            >i{
+                margin-left: 3px;
+                font-size: 20px;
+            }
+        }
+    }//header
+
+    >section{
+        position: relative;
+        height: 420px;
+        padding: 20px 10px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 4px #00000027;
+
+        >.add-new{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -10px;
+            margin-left: -100px;
+            width: 200px;
+            text-align: center;
+            cursor: pointer;
+
+            &.hide{
+                display: none;
+            }
+        }
+        
+        >ul{
+            overflow-y: auto;
+            height: 380px;
+            padding: 0 10px;
+
+            >li{
+                display: flex;
+                align-items: center;
+                height: 35px;
+                padding: 0 10px;
+                border-radius: 10px;
+
+                &.checked{
+
+                    >p{
+                        color: #858585;
+                        text-decoration: line-through;
+                    }
+                }
+
+                &:hover{
+                    background-color: #eddfff;
+
+                    >button{
+                        display: block;
+                    }
+                }
+
+                >p{
+                    flex: 1;
+                    order: 20;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    margin: 0 10px;
+                    cursor: pointer;
+                }
+
+                >input{
+                    order: 10;
+                    cursor: pointer;
+                }
+
+                >button{
+                    display: none;
+
+                    background: none;
+                    border: none;
+                    outline: none;
+                    cursor: pointer;
+                    
+                    order: 30;
+
+                    &:hover{
+                        font-size: 16px;
+                    }
+                }
+
+            }//li
+
+            &::-webkit-scrollbar{
+                width: 4px;
+            }
+
+            &::-webkit-scrollbar-thumb{
+                background: #a169e6;
+                border-radius: 20px;
+            }
+            &::-webkit-scrollbar-track{
+                background: #eee;
+                border-radius: 20px;
+            }
+        }//ul
+
+        >form{
+            display: flex;
+            position: absolute;
+            left: 0;
+            bottom: -50px;
+            width: 100%;
+            height: 35px;
+            box-shadow: 0 0 4px #00000027;
+            
+            >input{
+                @include reset-input;
+                padding: 0 10px;
+                background-color: #fff;
+                border: 1px solid #a169e6;
+                border-radius: 5px 0 0 5px;
+                flex: 1;
+            }//input
+            
+            >button{
+                @include reset-input;
+                color: #fff;
+                background-color: #a169e6;
+                border-radius: 0 5px 5px 0;
+                cursor: pointer;
+
+                &:hover{
+                    background-color: #b37df4;
+                }
+            }
+        }//form
+    }//section
+}//#wrap
